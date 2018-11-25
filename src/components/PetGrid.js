@@ -6,10 +6,19 @@ class PetGrid extends PureComponent {
     selectedPet: null
   }
 
+  renderPets(pets=[]) {
+    return pets.map((pet, i) => (
+      <li key={i}>
+        <div {...pet} />
+      </li>
+    ));
+  }
+
   render() {
     return (
       <div className="PetGrid">
         <ul>
+        { this.renderPets(this.props.pets) }
         </ul>
       </div>
     )
