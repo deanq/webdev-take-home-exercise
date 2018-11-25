@@ -42,3 +42,32 @@ describe('PetGrid listing its pets', () => {
     expect(component).toContainMatchingElements(pets.length, 'li');
   });
 })
+
+describe('PetGrid selecting a pet', () => {
+  let component;
+  const selectedPet = pets[0];
+
+  beforeEach(() => {
+    component = shallow(<PetGrid />);
+    component.instance().selectPet(selectedPet);
+  });
+
+  it('should have a pet selected', () => {
+    expect(component).toHaveState('selectedPet', selectedPet);
+  });
+})
+
+describe('PetGrid deselecting a pet', () => {
+  let component;
+  const selectedPet = pets[0];
+
+  beforeEach(() => {
+    component = shallow(<PetGrid />);
+    component.instance().selectPet(selectedPet);
+    component.instance().deselectPet();
+  });
+
+  it('should have no pet selected', () => {
+    expect(component).toHaveState('selectedPet', null);
+  });
+})

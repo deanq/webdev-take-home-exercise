@@ -6,6 +6,14 @@ class PetGrid extends PureComponent {
     selectedPet: null
   }
 
+  selectPet(pet) {
+    this.setState({selectedPet: pet})
+  }
+
+  deselectPet() {
+    this.setState({selectedPet: null})
+  }
+
   renderPets(pets=[]) {
     return pets.map((pet, i) => (
       <li key={i}>
