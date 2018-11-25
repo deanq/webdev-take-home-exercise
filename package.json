@@ -1,0 +1,40 @@
+{
+  "name": "webdev-take-home-exercise",
+  "version": "0.0.0",
+  "author": "Dean Quinanola",
+  "private": true,
+  "scripts": {
+    "start": "PORT=8000 node ./bin/www",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "PORT=8000 supervisor ./bin/www",
+    "frontend": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=node",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest-enzyme": "^7.0.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1",
+    "react-test-renderer": "^16.6.3",
+    "supervisor": "^0.12.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
