@@ -45,6 +45,21 @@ describe('PetThumb is assigned a pet', () => {
   });
 })
 
+describe('PetThumb image is clicked', () => {
+  let component;
+  const mockFunc = jest.fn();
+
+  beforeEach(() => {
+    component = shallow(<PetThumb {...pet} />);
+    component.setProps({...pet, onClick: mockFunc })
+    component.simulate('click');
+  });
+
+  it('should call onClick props', () => {
+    expect(mockFunc).toBeCalled();
+  });
+})
+
 describe('PetThumb URL transforms /raw to /thumbs', () => {
   let component;
   const petURL = "/assets/images/raw/1.jpeg";

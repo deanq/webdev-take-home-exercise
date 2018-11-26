@@ -9,7 +9,7 @@ class PetThumb extends PureComponent {
 
   render() {
     return (
-      <div className="PetThumb">
+      <div className="PetThumb" onClick={ this.props.onClick } >
         <LazyLoad height={200} offset={32} once >
           <img
             src={ this.getThumbURL(this.props.image) }
