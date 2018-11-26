@@ -8,8 +8,8 @@ class PetPreview extends PureComponent {
         <div className="background">
           <div className="modal">
             <img
-              src=""
-              alt="" />
+              src={ this.props.image }
+              alt={ this.props.source } />
           </div>
         </div>
       </div>
