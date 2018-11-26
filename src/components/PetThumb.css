@@ -11,3 +11,10 @@
 .PetThumb:hover {
   border: 0.25em solid white;
 }
+
+@media (max-width: 599px) {/* mobile/tablet */
+  .PetThumb {
+    border-radius: 0.5em;
+    margin: 0.5em;
+  }
+}

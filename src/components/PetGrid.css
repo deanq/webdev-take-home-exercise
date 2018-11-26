@@ -22,3 +22,13 @@
   background-color: var(--color-secondary);
   color: var(--color-link);
 }
+
+@media (max-width: 599px) {/* mobile/tablet */
+  .PetGrid ul {
+    padding: 0.5em;
+  }
+  .PetGrid .more {
+    padding: 0.5em;
+    border-radius: 0.25em;
+  }
+}

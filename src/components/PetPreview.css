@@ -36,3 +36,10 @@
 	display: block;
 	max-width: 100%;
 }
+
+@media (max-width: 599px) {/* mobile/tablet */
+	.PetPreview .modal {
+		border-radius: 0.5em;
+		border: 0.125em solid white;
+	}
+}
