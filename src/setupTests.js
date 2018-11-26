@@ -2,7 +2,9 @@
 
 const { JSDOM } = require('jsdom');
 
-const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
+const jsdom = new JSDOM('<!doctype html><html><body></body></html>', {
+  url: "http://localhost"
+});
 const { window } = jsdom;
 
 function copyProps(src, target) {
@@ -20,6 +22,9 @@ global.document = window.document;
 global.navigator = {
   userAgent: 'node.js',
 };
+
+// Setup mocked fetch
+global.fetch = require('jest-fetch-mock');
 
 // Setup jest + enzyme test adapter
 

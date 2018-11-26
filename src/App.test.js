@@ -20,5 +20,24 @@ describe('App initializing', () => {
   it('should have PetGrid', () => {
     expect(component).toContainMatchingElement('PetGrid');
     expect(component.find('PetGrid')).toHaveProp('pets', component.state('pets'));
+    expect(component.find('PetGrid')).toHaveProp('getMorePets');
   });
 })
+
+describe('App calls on API to get pets', () => {
+  let component, instance;
+
+  beforeEach(() => {
+    fetch.resetMocks();
+    fetch.mockResponse(JSON.stringify({dogs:['a']}));
+    component = shallow(<App />);
+
+    instance = component.instance();
+    instance.getMorePets();
+  });
+
+  it('should have a pet', () => {
+    expect(instance.state.pets.length).toEqual(1);
+  });
+})
+
