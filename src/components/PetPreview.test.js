@@ -45,3 +45,17 @@ describe('PetPreview is assigned a pet', () => {
   });
 })
 
+describe('PetPreview is clicked', () => {
+  let component;
+  const mockFunc = jest.fn();
+
+  beforeEach(() => {
+    component = shallow(<PetPreview onClick={mockFunc} />);
+    const background = component.find('.background');
+    background.simulate('click');
+  });
+
+  it('should call onClick props', () => {
+    expect(mockFunc).toBeCalled();
+  });
+})

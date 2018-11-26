@@ -5,7 +5,8 @@ class PetPreview extends PureComponent {
   render() {
     return (
       <div className="PetPreview">
-        <div className="background">
+        <div className="background"
+             onClick={ this.props.onClick }>
           <div className="modal">
             <img
               src={ this.props.image }
