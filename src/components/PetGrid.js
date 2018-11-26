@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import './PetGrid.css';
+import PetThumb from './PetThumb';
 
 class PetGrid extends PureComponent {
   state = {
@@ -17,7 +18,8 @@ class PetGrid extends PureComponent {
   renderPets(pets=[]) {
     return pets.map((pet, i) => (
       <li key={i}>
-        <div {...pet} />
+        <PetThumb {...pet}
+          onClick={ this.selectPet.bind(this, pet) } />
       </li>
     ));
   }

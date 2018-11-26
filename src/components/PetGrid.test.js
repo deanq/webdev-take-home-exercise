@@ -40,6 +40,7 @@ describe('PetGrid listing its pets', () => {
 
   it('should list the pets', () => {
     expect(component).toContainMatchingElements(pets.length, 'li');
+    expect(component).toContainMatchingElements(pets.length, 'PetThumb');
   });
 })
 
@@ -69,5 +70,29 @@ describe('PetGrid deselecting a pet', () => {
 
   it('should have no pet selected', () => {
     expect(component).toHaveState('selectedPet', null);
+  });
+})
+
+describe('PetGrid clicking on a PetThumb', () => {
+  let component, spy, petThumb;
+
+  beforeEach(() => {
+    spy = jest.spyOn(PetGrid.prototype, 'selectPet');
+    component = shallow(<PetGrid pets={pets} />);
+    petThumb = component.find('PetThumb').first();
+    petThumb.simulate('click');
+  });
+
+  afterEach(() => {
+    spy.mockClear();
+  });
+
+  it('should call selectPet with the appropriate pet', () => {
+    expect(spy).toBeCalled();
+
+    const petSelected = spy.mock.calls[0][0];
+    const petExpected = petThumb.props();
+    expect(petSelected.image).toEqual(petExpected.image);
+    expect(petSelected.source).toEqual(petExpected.source);
   });
 })
