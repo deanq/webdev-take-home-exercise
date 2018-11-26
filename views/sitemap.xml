@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>{{ baseURL }}/</loc>
+    </url>
+    {% for pet in pets %}
+    <url>
+        <loc>{{ baseURL + pet.source | replace('https://unsplash.com/photos', '/adopt') }}</loc>
+    </url>
+    {% endfor %}
+</urlset>

@@ -19,4 +19,23 @@ router.get('/adopt/:pet_id', function(req, res, next) {
   });
 });
 
+router.get('/sitemap.xml', function(req, res, next) {
+  const baseURL = `${req.protocol}://${req.get('host')}`;
+
+  res.header('Content-Type', 'application/xml');
+  res.render('sitemap.xml', {
+    baseURL,
+    pets: mockDB.dogs
+  });
+});
+
+router.get('/robots.txt', function(req, res, next) {
+  const baseURL = `${req.protocol}://${req.get('host')}`;
+
+  res.header('Content-Type', 'text/plain');
+  res.render('robots.txt', {
+    baseURL
+  });
+});
+
 module.exports = router;
