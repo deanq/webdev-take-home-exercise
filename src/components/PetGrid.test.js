@@ -95,4 +95,10 @@ describe('PetGrid clicking on a PetThumb', () => {
     expect(petSelected.image).toEqual(petExpected.image);
     expect(petSelected.source).toEqual(petExpected.source);
   });
+
+  it('should present PetPreview with the appropriate pet', () => {
+    const petPreviewImg = component.find('PetPreview');
+    expect(petPreviewImg.prop('image')).toEqual(petThumb.prop('image'));
+    expect(petPreviewImg.prop('source')).toEqual(petThumb.prop('source'));
+  });
 })

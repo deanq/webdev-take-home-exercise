@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './PetGrid.css';
 import PetThumb from './PetThumb';
+import PetPreview from './PetPreview';
 
 class PetGrid extends PureComponent {
   state = {
@@ -27,6 +28,9 @@ class PetGrid extends PureComponent {
   render() {
     return (
       <div className="PetGrid">
+        { this.state.selectedPet &&
+          <PetPreview {...this.state.selectedPet} />
+        }
         <ul>
         { this.renderPets(this.props.pets) }
         </ul>
