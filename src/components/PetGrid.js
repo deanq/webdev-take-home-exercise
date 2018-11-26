@@ -35,6 +35,10 @@ class PetGrid extends PureComponent {
         <ul>
         { this.renderPets(this.props.pets) }
         </ul>
+        <button className="more"
+                onClick={ this.props.getMorePets }>
+          See More
+        </button>
       </div>
     )
   }

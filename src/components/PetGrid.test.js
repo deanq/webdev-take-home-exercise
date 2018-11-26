@@ -33,6 +33,11 @@ describe('PetGrid initializing', () => {
   it('should not have a PetPreview', () => {
     expect(component).not.toContainMatchingElement('PetPreview');
   });
+
+  it('should have a See More button', () => {
+    expect(component).toContainMatchingElement('button.more');
+    expect(component.find('button.more')).toHaveText('See More');
+  });
 })
 
 describe('PetGrid listing its pets', () => {
@@ -118,4 +123,22 @@ describe('PetGrid clicking on a PetThumb', () => {
       expect(component).not.toContainMatchingElement('PetPreview');
     });
   })
+})
+
+fdescribe('PetGrid clicking on See More', () => {
+  let component, mockFunc;
+
+  beforeEach(() => {
+    mockFunc = jest.fn();
+    component = shallow(<PetGrid getMorePets={mockFunc} />);
+    component.find('button.more').simulate('click');
+  });
+
+  afterEach(() => {
+    mockFunc.mockClear();
+  });
+
+  it('should call getMorePets()', () => {
+    expect(mockFunc).toBeCalled();
+  });
 })
