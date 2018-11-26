@@ -1,0 +1,38 @@
+@keyframes present {
+  from {
+    transform: scaleY(0.95) scaleX(0.95) translateY(2em);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1) scaleX(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.PetPreview .background {
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.PetPreview .modal {
+	overflow: hidden;
+	border-radius: 1em;
+	border: 0.25em solid white;
+	background-color: white;
+	box-shadow: 0 0 0 1000px rgba(0,0,0,.6);
+	max-width: 90%;
+	max-height: 90%;
+	animation: present ease-in-out 0.25s forwards;
+}
+.PetPreview .modal:hover {
+	box-shadow: 0 0 0 1000px rgba(0,0,0,.8);
+}
+.PetPreview img {
+	display: block;
+	max-width: 100%;
+}

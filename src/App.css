@@ -1,0 +1,15 @@
+*:hover,
+*:link {
+  transition: all 0.25s ease;
+}
+
+blockquote {
+  background-color: #efefef;
+  padding: 1em;
+  text-align: justify;
+}
+
+blockquote cite {
+  display: block;
+  text-align: right;
+}

@@ -1,0 +1,24 @@
+.PetGrid ul {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.PetGrid li {
+  list-style-type: none;
+  width: 33.3333%;
+}
+.PetGrid .more {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  background-color: var(--color-link);
+  color: white;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 93%;
+}
+.PetGrid .more:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-link);
+}
