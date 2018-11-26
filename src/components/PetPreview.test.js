@@ -59,3 +59,20 @@ describe('PetPreview is clicked', () => {
     expect(mockFunc).toBeCalled();
   });
 })
+
+describe('when Escape key is pressed', () => {
+  let component;
+  const mockFunc = jest.fn();
+
+  beforeEach(() => {
+    component = shallow(<PetPreview onClick={mockFunc} />);
+    component.instance();
+    component.simulate('keyDown', {key: 'Escape'});
+  });
+
+  // FIXME: simulating keyDown does not propagate actual event
+  // See https://github.com/airbnb/enzyme/issues/441
+  xit('should call onClick props', () => {
+    expect(mockFunc).toBeCalled();
+  });
+})

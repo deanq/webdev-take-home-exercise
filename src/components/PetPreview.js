@@ -2,6 +2,14 @@ import React, { PureComponent } from 'react'
 import './PetPreview.css'
 
 class PetPreview extends PureComponent {
+  componentDidMount() {
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        this.props.onClick();
+      }
+    }, false);
+  }
+
   render() {
     return (
       <div className="PetPreview">
