@@ -20,6 +20,9 @@ nunjucks.configure(['build', 'views'], {
   express: app
 });
 
+// Routes for root and others
+app.use('/', require('./routes/main'));
+
 // serve /build as static, except for *.html files
 app.use('/', (req, res, next) => {
   var result = req.url.match(/^\/.+\.html$/)

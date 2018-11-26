@@ -21,7 +21,9 @@
       </blockquote>
     </header>
     <main>
-      <div id="root"></div>
+      <div id="root">
+        {% block content %}{% endblock %}
+      </div>
     </main>
     <footer class="global-footer">
       <p>Built by Dean Quiñanola for Asana.</p>

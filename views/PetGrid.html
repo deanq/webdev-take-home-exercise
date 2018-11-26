@@ -1,0 +1,17 @@
+{% if pets | length %}
+<aside class="PetGrid">
+  <h4>Adopt these pets today!</h4>
+  <ul>
+    {% for pet in pets %}
+    <li>
+      <div class="PetThumb">
+        <a href="{{ pet.source | replace('https://unsplash.com/photos', '/adopt') }}">
+          <img src="{{ pet.image }}" alt="{{ pet.source }}" />
+        </a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="more" href="/">See More Pets</a>
+</aside>
+{% endif %}

@@ -1,0 +1,19 @@
+{% if selectedPet %}
+{% set share_url = baseURL + selectedPet.source | replace('https://unsplash.com/photos', '/adopt') %}
+<article class="PetPreview">
+  <div class="background">
+    <div class="modal">
+      <h3>Will you adopt me?</h3>
+      <p>
+        OR share my profile
+        to someone who might:<br />
+        <a href="{{ share_url }}">
+          {{ share_url }}
+        </a>
+      </p>
+      <img src="{{ selectedPet.image }}" alt="{{ selectedPet.source }}" />
+    </div>
+  </div>
+</article>
+</style>
+{% endif %}
