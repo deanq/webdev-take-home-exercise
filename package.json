@@ -27,6 +27,7 @@
     "jest-enzyme": "^7.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-lazyload": "^2.3.0",
     "react-scripts": "2.1.1",
     "react-test-renderer": "^16.6.3",
     "supervisor": "^0.12.0"

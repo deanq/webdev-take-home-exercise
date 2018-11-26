@@ -36,6 +36,13 @@ describe('PetThumb is assigned a pet', () => {
     expect(image.prop('src')).toEqual(imageThumb);
     expect(image.prop('alt')).toEqual(pet.source);
   });
+
+  it('should lazy-load the image', () => {
+    expect(component).toContainMatchingElement('LazyLoad');
+    const lazyImage = component.find('LazyLoad');
+    expect(lazyImage.prop('height')).toEqual(200);
+    expect(lazyImage.prop('once')).toEqual(true);
+  });
 })
 
 describe('PetThumb URL transforms /raw to /thumbs', () => {
