@@ -32,7 +32,22 @@ describe('PetThumb is assigned a pet', () => {
 
   it('should assign the image', () => {
     const image = component.find('img');
-    expect(image.prop('src')).toEqual(pet.image);
+    const imageThumb = component.instance().getThumbURL(pet.image);
+    expect(image.prop('src')).toEqual(imageThumb);
     expect(image.prop('alt')).toEqual(pet.source);
+  });
+})
+
+describe('PetThumb URL transforms /raw to /thumbs', () => {
+  let component;
+  const petURL = "/assets/images/raw/1.jpeg";
+  const expectedURL = "/assets/images/thumbs/1.jpeg";
+
+  beforeEach(() => {
+    component = shallow(<PetThumb />);
+  });
+
+  it('should transform the URL', () => {
+    expect(component.instance().getThumbURL(petURL)).toEqual(expectedURL);
   });
 })
