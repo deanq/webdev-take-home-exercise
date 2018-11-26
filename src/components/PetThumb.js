@@ -6,8 +6,8 @@ class PetThumb extends PureComponent {
     return (
       <div className="PetThumb">
           <img
-            src=""
-            alt="" />
+            src={ this.props.image }
+            alt={ this.props.source } />
       </div>
     )
   }
