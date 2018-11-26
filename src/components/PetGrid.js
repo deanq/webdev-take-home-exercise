@@ -29,7 +29,8 @@ class PetGrid extends PureComponent {
     return (
       <div className="PetGrid">
         { this.state.selectedPet &&
-          <PetPreview {...this.state.selectedPet} />
+          <PetPreview {...this.state.selectedPet}
+              onClick={ this.deselectPet.bind(this) } />
         }
         <ul>
         { this.renderPets(this.props.pets) }

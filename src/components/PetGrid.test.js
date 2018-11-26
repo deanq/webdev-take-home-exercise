@@ -29,6 +29,10 @@ describe('PetGrid initializing', () => {
   it('should have list', () => {
     expect(component).toContainMatchingElement('ul');
   });
+
+  it('should not have a PetPreview', () => {
+    expect(component).not.toContainMatchingElement('PetPreview');
+  });
 })
 
 describe('PetGrid listing its pets', () => {
@@ -101,4 +105,17 @@ describe('PetGrid clicking on a PetThumb', () => {
     expect(petPreviewImg.prop('image')).toEqual(petThumb.prop('image'));
     expect(petPreviewImg.prop('source')).toEqual(petThumb.prop('source'));
   });
+
+  describe('clicking on PetPreview', () => {
+    let petPreview;
+
+    beforeEach(() => {
+      petPreview = component.find('PetPreview');
+      petPreview.simulate('click');
+    });
+
+    it('should close PetPreview', () => {
+      expect(component).not.toContainMatchingElement('PetPreview');
+    });
+  })
 })
