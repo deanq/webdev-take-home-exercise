@@ -12,5 +12,13 @@ describe('App initializing', () => {
   it('renders without crashing', () => {
     expect(component.exists()).toEqual(true);
   });
-})
 
+  it('should have an initial state', () => {
+    expect(component).toHaveState('pets');
+  });
+
+  it('should have PetGrid', () => {
+    expect(component).toContainMatchingElement('PetGrid');
+    expect(component.find('PetGrid')).toHaveProp('pets', component.state('pets'));
+  });
+})
