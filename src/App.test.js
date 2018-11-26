@@ -39,5 +39,17 @@ describe('App calls on API to get pets', () => {
   it('should have a pet', () => {
     expect(instance.state.pets.length).toEqual(1);
   });
+
+  describe('when getMorePets is called sequentially', () => {
+    beforeEach(() => {
+      instance.getMorePets();
+      instance.getMorePets();
+      instance.getMorePets();
+    });
+
+	  it('should have accumulated pets (1 + 3)', () => {
+      expect(instance.state.pets.length).toEqual(4);
+    });
+  });
 })
 
