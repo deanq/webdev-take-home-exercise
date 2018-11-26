@@ -2,10 +2,15 @@ import React, { PureComponent } from 'react';
 import 'babel-polyfill';
 import './App.css';
 import PetGrid from './components/PetGrid';
+import 'cross-fetch';
 
 class App extends PureComponent {
   state = {
     pets: []
+  }
+
+  componentDidMount() {
+    this.getMorePets();
   }
 
   getMorePets() {

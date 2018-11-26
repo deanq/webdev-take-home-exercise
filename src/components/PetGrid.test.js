@@ -125,7 +125,7 @@ describe('PetGrid clicking on a PetThumb', () => {
   })
 })
 
-fdescribe('PetGrid clicking on See More', () => {
+describe('PetGrid clicking on See More', () => {
   let component, mockFunc;
 
   beforeEach(() => {
